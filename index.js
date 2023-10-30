@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
-const handler = require('./handler').handler
+const handler = require('./function/handler').handler
 
 app.all('*', (req, res) => {
   Promise
