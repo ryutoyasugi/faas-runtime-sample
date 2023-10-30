@@ -1,0 +1,16 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: faas-sample
+spec:
+  template:
+    spec:
+      containers:
+        - image: ryutoyasugi/faas-runtime-sample:latest
+          volumeMounts:
+            - mountPath: /app/function
+              name: handler-config
+      volumes:
+        - name: handler-config
+          configMap:
+            name: handler
